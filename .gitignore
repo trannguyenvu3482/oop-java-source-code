@@ -1,0 +1,21 @@
+# Eclipse
+.metadata
+.settings
+.classpath
+
+# IntelliJ
+.idea/
+*.iml
+*.iws
+out/
+artifacts/
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+
+# Bin folder
+bin/
