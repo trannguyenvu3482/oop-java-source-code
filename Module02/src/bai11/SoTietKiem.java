@@ -79,6 +79,6 @@ public class SoTietKiem {
 
     @Override
     public String toString() {
-        return "STK " + maSo + "[" + ngayMoSo + "-" + LocalDate.now() + "]KH " + kyHan + " thang"
+        return "STK " + maSo + "[" + ngayMoSo + "-" + LocalDate.now() + "]KH " + kyHan + " thang";
     }
 }
