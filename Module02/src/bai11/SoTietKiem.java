@@ -1,19 +1,24 @@
 package bai11;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
 
 public class SoTietKiem {
     private String maSo;
     private LocalDate ngayMoSo;
     private double soTienGui;
     private int kyHan;
-    private float laiSuat;
+    private double laiSuat;
+
+    DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DecimalFormat df = new DecimalFormat("#,###.##");
 
     public SoTietKiem() {
     }
 
-    public SoTietKiem(String maSo, LocalDate ngayMoSo, double soTienGui, int kyHan, float laiSuat) {
+    public SoTietKiem(String maSo, LocalDate ngayMoSo, double soTienGui, int kyHan, double laiSuat) {
         this.maSo = maSo;
         this.ngayMoSo = ngayMoSo;
         this.soTienGui = soTienGui;
@@ -26,6 +31,7 @@ public class SoTietKiem {
         int yearsBetween = age.getYears();
         int monthsBetween = age.getMonths();
         int monthsSent = yearsBetween * 12 + monthsBetween;
+
         if (monthsSent % kyHan == 0) {
             return monthsSent;
         } else {
@@ -69,16 +75,19 @@ public class SoTietKiem {
         this.kyHan = kyHan;
     }
 
-    public float getLaiSuat() {
+    public double getLaiSuat() {
         return laiSuat;
     }
 
-    public void setLaiSuat(float laiSuat) {
+    public void setLaiSuat(double laiSuat) {
         this.laiSuat = laiSuat;
     }
 
     @Override
     public String toString() {
-        return "STK " + maSo + "[" + ngayMoSo + "-" + LocalDate.now() + "]KH " + kyHan + " thang";
+        return "STK " + maSo + "[" + dtf.format(ngayMoSo) + "-" + dtf.format(LocalDate.now()) + "]KH " + kyHan
+                + " thang, so thang tinh lai: "
+                + tinhSoThangGuiThuc() + " lai suat " + laiSuat + ", so tien: " + df.format(soTienGui) + " --> "
+                + df.format(tinhTienLai() - soTienGui);
     }
 }

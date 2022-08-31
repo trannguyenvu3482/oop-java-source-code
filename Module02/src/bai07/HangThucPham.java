@@ -16,16 +16,23 @@ public class HangThucPham {
     DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     // Constructor
+    public HangThucPham() {
+        this.ngaySanXuat = LocalDate.now();
+        this.ngayHetHan = LocalDate.now();
+    }
+
     public HangThucPham(String maHang) throws Exception {
         setMaHang(maHang);
         setTenHang("xxx");
         setDonGia(0);
-        setNgaySanXuat(LocalDate.now());
-        setNgayHetHan(this.ngaySanXuat);
+        this.ngaySanXuat = LocalDate.now();
+        this.ngayHetHan = LocalDate.now();
     }
 
     public HangThucPham(String maHang, String tenHang, int donGia, LocalDate ngaySanXuat, LocalDate ngayHetHan)
             throws Exception {
+    	this.ngaySanXuat = LocalDate.now();
+        this.ngayHetHan = LocalDate.now();
         setMaHang(maHang);
         setTenHang(tenHang);
         setDonGia(donGia);
@@ -71,9 +78,9 @@ public class HangThucPham {
     }
 
     public void setNgaySanXuat(LocalDate ngaySanXuat) {
-        if (ngaySanXuat.isBefore(this.ngayHetHan)) {
-            this.ngaySanXuat = ngaySanXuat;
-        }
+    	if (ngaySanXuat.isBefore(this.ngayHetHan)) {
+        this.ngaySanXuat = ngaySanXuat;
+         }
     }
 
     public LocalDate getNgayHetHan() {
@@ -81,9 +88,9 @@ public class HangThucPham {
     }
 
     public void setNgayHetHan(LocalDate ngayHetHan) {
-        if (ngayHetHan.isAfter(this.ngaySanXuat)) {
-            this.ngayHetHan = ngayHetHan;
-        }
+         if (ngayHetHan.isAfter(this.ngaySanXuat)) {
+        this.ngayHetHan = ngayHetHan;
+         }
     }
 
     // Methods
@@ -93,7 +100,7 @@ public class HangThucPham {
 
     @Override
     public String toString() {
-        return String.format("%-10s %-20s %-10s %-10s %-10s %-10s", maHang, tenHang, df.format(donGia),
+        return String.format("|%-10s| %-15s| %-20s| %-20s| %-20s| %-20s|", maHang, tenHang, df.format(donGia),
                 dtf.format(ngaySanXuat), dtf.format(ngayHetHan), isHetHan() ? "Hang het han" : "");
     }
 }
