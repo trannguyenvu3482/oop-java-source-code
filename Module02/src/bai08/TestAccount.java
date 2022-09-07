@@ -33,5 +33,6 @@ public class TestAccount {
 		System.out.println(String.format("|%-20s|%-20s|%-20s|", "Name", "Account Number", "Balance"));
 		System.out.println(acc1);
 		System.out.println(acc2);
+		System.out.println(acc3);
 	}
 }

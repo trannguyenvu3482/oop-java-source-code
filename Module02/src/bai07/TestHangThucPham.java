@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 package bai07;
 
 import java.time.LocalDate;
@@ -43,4 +42,3 @@ public class TestHangThucPham {
                 System.out.println(htp3);
         }
 }
->>>>>>> branch 'master' of https://github.com/trannguyenvu3482/oop-java-source-code.git
