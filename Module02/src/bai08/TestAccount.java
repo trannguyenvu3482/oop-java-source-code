@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-package bai08;
+<<<<<<<HEAD package bai08;
 
 public class TestAccount {
 	public static void main(String[] args) {
@@ -32,12 +31,11 @@ public class TestAccount {
 		System.out.println(acc1);
 		System.out.println(acc2);
 	}
-}
-=======
+}=======
 package bai08;
 
 public class TestAccount {
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         Account acc1 = new Account("Tran Van A", 72354, 102.56);
         Account acc2 = new Account("Nguyen Van B", 69713, 40.00);
         Account acc3 = new Account("Tran Nguyen Vu", 93757, 759.32);
@@ -66,5 +64,7 @@ public class TestAccount {
         System.out.println(acc1);
         System.out.println(acc2);
     }
-}
->>>>>>> branch 'master' of https://github.com/trannguyenvu3482/oop-java-source-code.git
+}>>>>>>>branch'master'
+
+of https:
+// github.com/trannguyenvu3482/oop-java-source-code.git
