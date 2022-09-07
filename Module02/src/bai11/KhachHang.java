@@ -13,10 +13,10 @@ public class KhachHang {
         this.soLuongSoHienCo = 0;
     }
 
-    public KhachHang(String maKH, String hoTenKH, SoTietKiem[] dsSoTietKiem, int soLuongSoHienCo) {
+    public KhachHang(String maKH, String hoTenKH, int soLuongSoHienCo) {
         this.maKH = maKH;
         this.hoTenKH = hoTenKH;
-        this.dsSoTietKiem = dsSoTietKiem;
+        this.dsSoTietKiem = new SoTietKiem[100]; // 100 la so luong toi da so tiet kiem ma khach hang co the mo
         this.soLuongSoHienCo = soLuongSoHienCo;
     }
 
@@ -53,10 +53,21 @@ public class KhachHang {
     }
 
     public void themSoTietKiem(SoTietKiem soTietKiem) {
-        if (soLuongSoHienCo < dsSoTietKiem.length) {
+        if (soLuongSoHienCo == 0) {
+            dsSoTietKiem[0] = soTietKiem;
+            soLuongSoHienCo++;
+        } else {
             dsSoTietKiem[soLuongSoHienCo] = soTietKiem;
             soLuongSoHienCo++;
         }
     }
 
+    @Override
+    public String toString() {
+        System.out.println("Khach hang: " + maKH + " - " + hoTenKH);
+        for (int i = 0; i < soLuongSoHienCo; i++) {
+            System.out.println(dsSoTietKiem[i]);
+        }
+        return "";
+    }
 }
