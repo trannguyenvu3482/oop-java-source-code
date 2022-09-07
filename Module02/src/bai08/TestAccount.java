@@ -1,7 +1,10 @@
 package bai08;
 
+import java.text.DecimalFormat;
+
 public class TestAccount {
 	public static void main(String[] args) {
+		DecimalFormat df = new DecimalFormat("###.##");
 		// Create 3 new accounts
 		Account acc1 = new Account("Ted Murphy", 72354, 100000);
 		Account acc2 = new Account("Jane Smith", 69713, 40000);
@@ -13,6 +16,7 @@ public class TestAccount {
 
 		acc3.addInterest();
 
+		System.out.println("Lai suat hien tai: " + df.format(acc1.RATE * 100) + "%");
 		System.out.println("Danh sach khach hang:");
 		System.out.println("----------------------------------------------------------------");
 		System.out.println(String.format("|%-20s|%-20s|%-20s|", "Name", "Account Number", "Balance"));
