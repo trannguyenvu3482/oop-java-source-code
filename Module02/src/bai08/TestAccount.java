@@ -3,31 +3,34 @@ package bai08;
 public class TestAccount {
 	public static void main(String[] args) {
 		// Create 3 new accounts
-		Account acc1 = new Account("Tran Van A", 72354, 102.56);
-		Account acc2 = new Account("Nguyen Van B", 69713, 40.00);
-		Account acc3 = new Account("Tran Nguyen Vu", 93757, 759.32);
+		Account acc1 = new Account("Ted Murphy", 72354, 100000);
+		Account acc2 = new Account("Jane Smith", 69713, 40000);
+		Account acc3 = new Account("Edward Demsey", 93757, 700000);
 
-		acc1.deposit(25.85);
-		acc2.deposit(500.00);
-		acc2.withdraw(430.75, 1.50);
+		acc1.deposit(250000);
+		acc2.deposit(500000);
+		acc2.withdraw(430000, 2000);
 
 		acc3.addInterest();
 
-		System.out.println(String.format("%-20s %-20s %-20s", "Name", "Account Number", "Balance"));
+		System.out.println("Danh sach khach hang:");
+		System.out.println("----------------------------------------------------------------");
+		System.out.println(String.format("|%-20s|%-20s|%-20s|", "Name", "Account Number", "Balance"));
 		System.out.println(acc1);
 		System.out.println(acc2);
 		System.out.println(acc3);
 
-		System.out.println("\nDang chuyen 100.00 tu tai khoan " + acc1.getAccountNumber() + " sang tai khoan "
+		System.out.println("\nDang chuyen 100000 tu tai khoan " + acc1.getAccountNumber() + " sang tai khoan "
 				+ acc2.getAccountNumber());
 
-		if (acc1.transfer(acc2, 100.00)) {
+		if (acc1.transfer(acc2, 100000)) {
 			System.out.println("Chuyen thanh cong\n");
 		} else {
 			System.out.println("Chuyen that bai\n");
 		}
 
-		System.out.println(String.format("%-20s %-20s %-20s", "Name", "Account Number", "Balance"));
+		System.out.println("----------------------------------------------------------------");
+		System.out.println(String.format("|%-20s|%-20s|%-20s|", "Name", "Account Number", "Balance"));
 		System.out.println(acc1);
 		System.out.println(acc2);
 	}
