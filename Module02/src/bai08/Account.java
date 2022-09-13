@@ -1,98 +1,122 @@
 package bai08;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
 public class Account {
-    private long accountNumber;
-    private String name;
-    private double balance;
-    final double RATE = 0.035;
+	private long accountNumber;
+	private String name;
+	private double balance;
+	final double RATE = 0.035;
 
-    Locale local = new Locale("vi", "vn");
-    NumberFormat formatter = NumberFormat.getCurrencyInstance(local);
+	Locale local = new Locale("vi", "vn");
+	DecimalFormat df = new DecimalFormat("###.##");
+	NumberFormat formatter = NumberFormat.getCurrencyInstance(local);
 
-    // Constructors
-    public Account() {
-        this.accountNumber = 999999;
-        this.name = "Chua xac dinh";
-        this.balance = 50000;
-    }
+	// Constructors
+	public Account() {
+		this.accountNumber = 999999;
+		this.name = "Chua xac dinh";
+		this.balance = 50000;
+	}
 
-    public Account(String name, long accountNumber, double balance) {
-        this.accountNumber = accountNumber;
-        this.name = name;
-        this.balance = balance;
-    }
+	public Account(String name, long accountNumber, double balance) {
+		this.accountNumber = 999999;
+		this.name = "Chua xac dinh";
+		this.balance = 50000;
 
-    public Account(String name, long accountNumber) {
-        this.accountNumber = accountNumber;
-        this.name = name;
-    }
+		if (accountNumber > 0) {
+			this.accountNumber = accountNumber;
+		}
 
-    // Getter and Setter
-    public long getAccountNumber() {
-        return accountNumber;
-    }
+		if (name.length() > 0) {
+			this.name = name;
+		}
 
-    public void setAccountNumber(long accountNumber) {
-        if (accountNumber > 0) {
-            this.accountNumber = accountNumber;
-        }
-    }
+		if (balance > 50000) {
+			this.balance = balance;
+		}
 
-    public String getName() {
-        return name;
-    }
+	}
 
-    public void setName(String name) {
-        if (name.length() > 0) {
-            this.name = name;
-        }
-    }
+	public Account(String name, long accountNumber) {
+		this.accountNumber = 999999;
+		this.name = "Chua xac dinh";
+		this.balance = 50000;
 
-    public double getBalance() {
-        return balance;
-    }
+		if (accountNumber > 0) {
+			this.accountNumber = accountNumber;
+		}
 
-    public void setBalance(double balance) {
-        if (balance > 50000) {
-            this.balance = balance;
-        }
-    }
+		if (name.length() > 0) {
+			this.name = name;
+		}
+	}
 
-    // Methods
-    public boolean deposit(double amount) {
-        if (amount > 0) {
-            this.balance += amount;
-            return true;
-        }
-        return false;
-    }
+	// Getter and Setter
+	public long getAccountNumber() {
+		return accountNumber;
+	}
 
-    public boolean withdraw(double amount, double fee) {
-        if (amount > 0 && amount + fee <= this.balance) {
-            this.balance -= amount;
-            return true;
-        }
-        return false;
-    }
+	public void setAccountNumber(long accountNumber) {
+		if (accountNumber > 0) {
+			this.accountNumber = accountNumber;
+		}
+	}
 
-    public void addInterest() {
-        this.balance += this.balance * RATE;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public boolean transfer(Account acc2, double amount) {
-        if (amount > 0 && amount <= this.balance) {
-            this.balance -= amount;
-            acc2.balance += amount;
-            return true;
-        }
-        return false;
-    }
+	public void setName(String name) {
+		if (name.length() > 0) {
+			this.name = name;
+		}
+	}
 
-    @Override
-    public String toString() {
-        return String.format("%-20s %-20s %-20s", this.name, this.accountNumber, formatter.format(this.balance));
-    }
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		if (balance > 50000) {
+			this.balance = balance;
+		}
+	}
+
+	// Methods
+	public boolean deposit(double amount) {
+		if (amount > 0) {
+			this.setBalance(balance + amount);
+			return true;
+		}
+		return false;
+	}
+
+	public boolean withdraw(double amount, double fee) {
+		if (amount > 0 && amount + fee <= this.balance) {
+			this.setBalance(this.getBalance() - amount);
+			return true;
+		}
+		return false;
+	}
+
+	public void addInterest() {
+		this.setBalance(this.getBalance() + this.getBalance() * RATE);
+	}
+
+	public boolean transfer(Account acc2, double amount) {
+		if (amount > 0 && amount <= this.balance) {
+			this.setBalance(this.getBalance() - amount);
+			acc2.setBalance(acc2.getBalance() + amount);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("|%-20s|%-20d|%-20s|", this.name, this.accountNumber, formatter.format(this.balance));
+	}
 }
