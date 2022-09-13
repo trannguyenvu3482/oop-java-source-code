@@ -67,4 +67,9 @@ public class Sach {
 		this.thanhTien = thanhTien;
 	}
 
+	@Override
+	public String toString() {
+		return "Sach [maSach=" + maSach + ", ngayNhap=" + ngayNhap + ", donGia=" + donGia + ", soLuong=" + soLuong
+				+ ", nhaXuatBan=" + nhaXuatBan + ", thanhTien=" + thanhTien + "]";
+	}
 }

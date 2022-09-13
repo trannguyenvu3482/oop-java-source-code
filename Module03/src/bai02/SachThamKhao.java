@@ -10,8 +10,9 @@ public class SachThamKhao extends Sach {
 		this.thue = thue;
 	}
 
-	public void calcThanhTien() {
-		setThanhTien(getSoLuong() * getDonGia() + thue);
+	@Override
+	public double getThanhTien() {
+		return getSoLuong() * getDonGia() + thue;
 	}
 
 	public final double getThue() {
@@ -22,4 +23,8 @@ public class SachThamKhao extends Sach {
 		this.thue = thue;
 	}
 
+	public String toString() {
+		super.toString();
+		return "SachThamKhao [thue=" + thue + "]";
+	}
 }

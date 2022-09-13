@@ -10,13 +10,15 @@ public class SachGiaoKhoa extends Sach {
 		this.tinhTrang = tinhTrang;
 	}
 
-	public void calcThanhTien() {
+	@Override
+	public double getThanhTien() {
 		if (tinhTrang == "moi") {
-			setThanhTien(getSoLuong() * getDonGia());
+			return getSoLuong() * getDonGia();
 		} else if (tinhTrang == "cu") {
-			setThanhTien(getSoLuong() * getDonGia() * 0.5);
+			return getSoLuong() * getDonGia() * 0.5;
 		} else {
 			System.out.println("Khong hop le!");
+			return 0;
 		}
 	}
 
@@ -26,6 +28,11 @@ public class SachGiaoKhoa extends Sach {
 
 	public final void setTinhTrang(String tinhTrang) {
 		this.tinhTrang = tinhTrang;
+	}
+
+	public String toString() {
+		super.toString();
+		return "SachGiaoKhoa [tinhTrang=" + tinhTrang + "]";
 	}
 
 }
