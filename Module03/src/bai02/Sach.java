@@ -1,0 +1,70 @@
+package bai02;
+
+import java.util.Date;
+
+public class Sach {
+	private int maSach;
+	private Date ngayNhap;
+	private double donGia;
+	private int soLuong;
+	private String nhaXuatBan;
+	private double thanhTien;
+
+	public Sach(int maSach, Date ngayNhap, double donGia, int soLuong, String nhaXuatBan) {
+		super();
+		this.maSach = maSach;
+		this.ngayNhap = ngayNhap;
+		this.donGia = donGia;
+		this.soLuong = soLuong;
+		this.nhaXuatBan = nhaXuatBan;
+	}
+
+	public int getMaSach() {
+		return maSach;
+	}
+
+	public Date getNgayNhap() {
+		return ngayNhap;
+	}
+
+	public double getDonGia() {
+		return donGia;
+	}
+
+	public int getSoLuong() {
+		return soLuong;
+	}
+
+	public String getNhaXuatBan() {
+		return nhaXuatBan;
+	}
+
+	public void setMaSach(int maSach) {
+		this.maSach = maSach;
+	}
+
+	public void setNgayNhap(Date ngayNhap) {
+		this.ngayNhap = ngayNhap;
+	}
+
+	public void setDonGia(double donGia) {
+		this.donGia = donGia;
+	}
+
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
+
+	public void setNhaXuatBan(String nhaXuatBan) {
+		this.nhaXuatBan = nhaXuatBan;
+	}
+
+	public double getThanhTien() {
+		return thanhTien;
+	}
+
+	public void setThanhTien(double thanhTien) {
+		this.thanhTien = thanhTien;
+	}
+
+}
