@@ -1,25 +1,8 @@
 package bai12;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class TestCDList {
-
-	// Clear console
-	public static void clearConsole() {
-		try {
-			new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-		} catch (IOException | InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
-
-	// Pause console
-	public static void pauseConsole() {
-		System.out.println("Bam Enter de tiep tuc...");
-		Scanner sc = new Scanner(System.in);
-		sc.nextLine();
-	}
 
 	public static void main(String[] args) {
 		int choice = 0;
@@ -46,29 +29,18 @@ public class TestCDList {
 
 					switch (choice) {
 					case 1:
-//						clearConsole();
 						cdList.addCD();
-//						clearConsole();
 						break;
 					case 2:
-//						clearConsole();
 						System.out.println("So luong CD trong danh sach: " + cdList.countCD());
-						pauseConsole();
-//						clearConsole();
 						break;
 					case 3:
-//						clearConsole();
 						System.out.println("Tong gia thanh cua cac CD trong danh sach: " + cdList.tinhTongGiaThanh());
-						pauseConsole();
-//						clearConsole();
 						break;
 					case 4:
-//						clearConsole();
 						cdList.deleteCDByMaCD();
-						pauseConsole();
 						break;
 					case 5:
-//						clearConsole();
 						System.out.println("Hay nhap ma CD can tim: ");
 						int x = sc.nextInt();
 						int result = cdList.findCDByMaCD(x);
@@ -78,30 +50,18 @@ public class TestCDList {
 							System.out.println("Da tim thay CD:");
 							cdList.printOneCD(result);
 						}
-						pauseConsole();
-//						clearConsole();
 						break;
 					case 6:
-//						clearConsole();
 						cdList.printAllCD();
-						pauseConsole();
-//						clearConsole();
 						break;
 					case 7:
-//						clearConsole();
 						cdList.sortCDTheoGiaThanh();
 						System.out.println("Danh sach da sap xep giam dan theo gia thanh");
-						pauseConsole();
-//						clearConsole();
 					case 8:
-//						clearConsole();
 						cdList.sortCDTheoTuaCD();
 						System.out.println("Danh sach da sap xep tang dan theo tua CD");
-						pauseConsole();
-//						clearConsole();
 						break;
 					case 9:
-//						clearConsole();
 						System.out.println("Cam on ban da su dung chuong trinh");
 						exit = true;
 						break;

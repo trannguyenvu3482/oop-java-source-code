@@ -1,5 +1,8 @@
 package bai12;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class CD {
 	private int maCd;
 	private String tuaCd;
@@ -76,6 +79,9 @@ public class CD {
 
 	@Override
 	public String toString() {
-		return String.format("|%-20d|%-20s|%-20d|%-20.2f|", maCd, tuaCd, soBaiHat, giaThanh);
+		Locale lc = new Locale("vi", "VN");
+		NumberFormat nf = NumberFormat.getCurrencyInstance(lc);
+
+		return String.format("|%-20d|%-20s|%-20d|%-20s|", maCd, tuaCd, soBaiHat, nf.format(giaThanh));
 	}
 }

@@ -117,8 +117,8 @@ public class CDList {
 		} else {
 			System.out
 					.println(String.format("|%-20s|%-20s|%-20s|%-20s|", "Ma CD", "Tua CD", "So bai hat", "Gia thanh"));
-			System.out.println(
-					"===============================================================================================");
+			System.out
+					.println("=======================================================================================");
 			for (int i = 0; i < this.i; i++) {
 				System.out.println(CDList[i].toString());
 			}
