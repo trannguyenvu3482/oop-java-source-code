@@ -23,13 +23,20 @@ public class TestCDList {
 					System.out.println("6. In thong tin toan bo CD trong danh sach");
 					System.out.println("7. Sap xep danh sach giam dan theo gia thanh");
 					System.out.println("8. Sap xep danh sach tang dan dua theo tua CD");
-					System.out.println("9. Thoat");
+					System.out.println("9. Doi thong tin cua mot CD theo ma");
+					System.out.println("10. Thoat");
 					System.out.println("Nhap lua chon cua ban: ");
 					choice = sc.nextInt();
 
 					switch (choice) {
 					case 1:
-						cdList.addCD();
+						boolean res = cdList.addCD();
+						if (res) {
+							System.out.println("Thanh cong!");
+						} else {
+							System.out.println("Khong the them CD vao danh sach, da tang kich thuoc mang!");
+						}
+
 						break;
 					case 2:
 						System.out.println("So luong CD trong danh sach: " + cdList.countCD());
@@ -62,6 +69,13 @@ public class TestCDList {
 						System.out.println("Danh sach da sap xep tang dan theo tua CD");
 						break;
 					case 9:
+						if (cdList.changeCDInfo()) {
+							System.out.println("Da thay doi thanh cong");
+						} else {
+							System.out.println("Thay doi that bai");
+						}
+						break;
+					case 10:
 						System.out.println("Cam on ban da su dung chuong trinh");
 						exit = true;
 						break;
@@ -69,7 +83,7 @@ public class TestCDList {
 						System.out.println("Lua chon khong hop le");
 						break;
 					}
-				} while (choice < 1 || choice > 9);
+				} while (choice < 1 || choice > 10);
 			} while (exit == false);
 		}
 	}

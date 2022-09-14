@@ -17,9 +17,17 @@ public class CDList {
 		CDList = new CD[n];
 	}
 
-	// Methods
+	// Added more space when full
+	public void tangKichThuoc() {
+		if (i == CDList.length) {
+			CD[] tam = new CD[CDList.length + 1];
+			System.arraycopy(CDList, 0, tam, 0, i);
+			CDList = tam;
+		}
+	}
+
 	// Add CD to List
-	public void addCD() {
+	public boolean addCD() {
 		System.out.println("Nhap thong tin CD moi: ");
 		System.out.println("Nhap ma CD: ");
 		int maCd = sc.nextInt();
@@ -34,8 +42,10 @@ public class CDList {
 		if (this.i < CDList.length && checkMaCd(maCd) == false) {
 			CDList[this.i] = new CD(maCd, tuaCd, soBaiHat, giaThanh);
 			this.i = this.i + 1;
+			return true;
 		} else {
-			System.out.println("Khong the them CD vao danh sach");
+			tangKichThuoc();
+			return false;
 		}
 	}
 
@@ -64,6 +74,35 @@ public class CDList {
 			sum += CDList[i].getGiaThanh();
 		}
 		return sum;
+	}
+
+	public boolean changeCDInfo() {
+		System.out.println("Nhap vao ma CD can sua: ");
+		int x = sc.nextInt();
+
+		int foundIndex = findCDByMaCD(x);
+
+		if (foundIndex == -1)
+			return false;
+
+		System.out.println("Nhap thong tin CD muon thay doi: ");
+		System.out.println("Nhap ma CD: ");
+		int maCd = sc.nextInt();
+		System.out.println("Nhap tua CD: ");
+		String tuaCd = sc.next();
+		System.out.println("Nhap so bai hat: ");
+		int soBaiHat = sc.nextInt();
+		System.out.println("Nhap gia thanh: ");
+		double giaThanh = sc.nextDouble();
+
+		if (checkMaCd(maCd) == false) {
+			CDList[foundIndex] = new CD(maCd, tuaCd, soBaiHat, giaThanh);
+		} else {
+			System.out.println("Da trung ma CD!");
+			return false;
+		}
+
+		return true;
 	}
 
 	// Delete CD by maCD
