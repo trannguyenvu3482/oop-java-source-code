@@ -17,9 +17,8 @@ public class TestCDList {
 	// Pause console
 	public static void pauseConsole() {
 		System.out.println("Bam Enter de tiep tuc...");
-		try (Scanner sc = new Scanner(System.in)) {
-			sc.nextLine();
-		}
+		Scanner sc = new Scanner(System.in);
+		sc.nextLine();
 	}
 
 	public static void main(String[] args) {
@@ -31,7 +30,7 @@ public class TestCDList {
 			// Menu choice
 			do {
 				do {
-					clearConsole();
+					// clearConsole();
 					System.out.println("Menu chon:");
 					System.out.println("1. Them CD vao danh sach");
 					System.out.println("2. Tinh so luong CD trong danh sach");
@@ -47,29 +46,29 @@ public class TestCDList {
 
 					switch (choice) {
 					case 1:
-						clearConsole();
+//						clearConsole();
 						cdList.addCD();
-						clearConsole();
+//						clearConsole();
 						break;
 					case 2:
-						clearConsole();
+//						clearConsole();
 						System.out.println("So luong CD trong danh sach: " + cdList.countCD());
 						pauseConsole();
-						clearConsole();
+//						clearConsole();
 						break;
 					case 3:
-						clearConsole();
+//						clearConsole();
 						System.out.println("Tong gia thanh cua cac CD trong danh sach: " + cdList.tinhTongGiaThanh());
 						pauseConsole();
-						clearConsole();
+//						clearConsole();
 						break;
 					case 4:
-						clearConsole();
+//						clearConsole();
 						cdList.deleteCDByMaCD();
 						pauseConsole();
 						break;
 					case 5:
-						clearConsole();
+//						clearConsole();
 						System.out.println("Hay nhap ma CD can tim: ");
 						int x = sc.nextInt();
 						int result = cdList.findCDByMaCD(x);
@@ -80,29 +79,29 @@ public class TestCDList {
 							cdList.printOneCD(result);
 						}
 						pauseConsole();
-						clearConsole();
+//						clearConsole();
 						break;
 					case 6:
-						clearConsole();
+//						clearConsole();
 						cdList.printAllCD();
 						pauseConsole();
-						clearConsole();
+//						clearConsole();
 						break;
 					case 7:
-						clearConsole();
+//						clearConsole();
 						cdList.sortCDTheoGiaThanh();
 						System.out.println("Danh sach da sap xep giam dan theo gia thanh");
 						pauseConsole();
-						clearConsole();
+//						clearConsole();
 					case 8:
-						clearConsole();
+//						clearConsole();
 						cdList.sortCDTheoTuaCD();
 						System.out.println("Danh sach da sap xep tang dan theo tua CD");
 						pauseConsole();
-						clearConsole();
+//						clearConsole();
 						break;
 					case 9:
-						clearConsole();
+//						clearConsole();
 						System.out.println("Cam on ban da su dung chuong trinh");
 						exit = true;
 						break;

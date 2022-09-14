@@ -31,10 +31,10 @@ public class GiaoDichTienTe extends GiaoDich {
 
 	@Override
 	public double getThanhTien() {
-		if (this.loaiTienTe.equals("USD") || this.loaiTienTe.equals("EUR")) {
+		if (this.loaiTienTe.compareTo("USD") == 0 || this.loaiTienTe.compareTo("EUR") == 0) {
 			return this.getSoLuong() * this.getDonGia() * this.getTiGia();
-		} else if (this.loaiTienTe.equals("VND")) {
-			return this.getThanhTien() * this.getDonGia();
+		} else if (this.loaiTienTe.compareTo("VND") == 0) {
+			return this.getSoLuong() * this.getDonGia();
 		} else {
 			return 0;
 		}

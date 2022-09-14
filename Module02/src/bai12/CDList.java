@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CDList {
 	// Create a array of CD with n elements
 	private CD[] CDList;
-	private int n;
+	private int n; // n is maximum amount of CDs
 	private int i = 0;
 	private Scanner sc;
 
@@ -115,8 +115,10 @@ public class CDList {
 		if (this.i == 0) {
 			System.out.println("Danh sach rong");
 		} else {
-			System.out.println(String.format("%-20s%-20s%-20s%-20s", "Ma CD", "Tua CD", "So bai hat", "Gia thanh"));
-			System.out.println("=====================================================================");
+			System.out
+					.println(String.format("|%-20s|%-20s|%-20s|%-20s|", "Ma CD", "Tua CD", "So bai hat", "Gia thanh"));
+			System.out.println(
+					"===============================================================================================");
 			for (int i = 0; i < this.i; i++) {
 				System.out.println(CDList[i].toString());
 			}
@@ -140,7 +142,7 @@ public class CDList {
 	public void sortCDTheoTuaCD() {
 		for (int i = 0; i < this.i - 1; i++) {
 			for (int j = i + 1; j < this.i; j++) {
-				if (CDList[i].getTuaCd().compareTo(CDList[j].getTuaCd()) > 0) {
+				if (CDList[i].getTuaCd().compareToIgnoreCase(CDList[j].getTuaCd()) > 0) {
 					CD temp = CDList[i];
 					CDList[i] = CDList[j];
 					CDList[j] = temp;
