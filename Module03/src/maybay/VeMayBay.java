@@ -19,18 +19,26 @@ public class VeMayBay {
 	public VeMayBay(String ma, String noiDi, String noiDen, LocalDate ngayBay, double giaTien) throws Exception {
 		if (ma.length() == 3) {
 			this.ma = ma;
+		} else {
+			throw new Exception("Ma phai co 3 ki tu");
 		}
 
 		if (noiDi.length() > 0) {
 			this.noiDi = noiDi;
+		} else {
+			throw new Exception("Chuoi phai khac rong");
 		}
 
 		if (noiDen.length() > 0) {
 			this.noiDen = noiDen;
+		} else {
+			throw new Exception("Chuoi phai khac rong");
 		}
 
 		if (ngayBay.isAfter(LocalDate.now())) {
 			this.ngayBay = ngayBay;
+		} else {
+			throw new Exception("Ngay bay phai sau ngay hom nay");
 		}
 
 		if (giaTien >= 0) {
@@ -64,9 +72,11 @@ public class VeMayBay {
 		return giaTien;
 	}
 
-	public void setMa(String ma) {
+	public void setMa(String ma) throws Exception {
 		if (ma.length() == 3) {
 			this.ma = ma;
+		} else {
+			throw new Exception("Ma phai co 3 ki tu");
 		}
 	}
 
