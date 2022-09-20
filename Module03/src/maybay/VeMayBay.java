@@ -16,7 +16,7 @@ public class VeMayBay {
 	Locale local = new Locale("vi", "VN");
 	NumberFormat nf = NumberFormat.getCurrencyInstance(local);
 
-	public VeMayBay(String ma, String noiDi, String noiDen, LocalDate ngayBay, double giaTien) {
+	public VeMayBay(String ma, String noiDi, String noiDen, LocalDate ngayBay, double giaTien) throws Exception {
 		if (ma.length() == 3) {
 			this.ma = ma;
 		}
@@ -35,6 +35,8 @@ public class VeMayBay {
 
 		if (giaTien >= 0) {
 			this.giaTien = giaTien;
+		} else {
+			throw new Exception("Gia tien phai >= 0");
 		}
 	}
 
@@ -68,27 +70,35 @@ public class VeMayBay {
 		}
 	}
 
-	public void setNoiDi(String noiDi) {
+	public void setNoiDi(String noiDi) throws Exception {
 		if (noiDi.length() > 0) {
 			this.noiDi = noiDi;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
 		}
 	}
 
-	public void setNoiDen(String noiDen) {
+	public void setNoiDen(String noiDen) throws Exception {
 		if (noiDen.length() > 0) {
 			this.noiDen = noiDen;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
 		}
 	}
 
-	public void setNgayBay(LocalDate ngayBay) {
+	public void setNgayBay(LocalDate ngayBay) throws Exception {
 		if (ngayBay.isAfter(LocalDate.now())) {
 			this.ngayBay = ngayBay;
+		} else {
+			throw new Exception("Ngay bay phai sau ngay hom nay");
 		}
 	}
 
-	public void setGiaTien(double giaTien) {
+	public void setGiaTien(double giaTien) throws Exception {
 		if (giaTien >= 0) {
 			this.giaTien = giaTien;
+		} else {
+			throw new Exception("Gia tien phai >= 0");
 		}
 	}
 

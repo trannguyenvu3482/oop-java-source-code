@@ -3,7 +3,7 @@ package maybay;
 import java.time.LocalDate;
 
 public class TestVeMayBay {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		VeMayBay vmb1 = new VeMayBay("001", "HCM", "HN", LocalDate.of(2022, 10, 12), 500000);
 		VeMayBay vmb2 = new VeMayBay("002", "HCM", "HN", LocalDate.of(2022, 10, 12), 600000);
 		VeMayBay vmb3 = new VeMayBay("003", "HCM", "HN", LocalDate.of(2022, 10, 12), -10000);
