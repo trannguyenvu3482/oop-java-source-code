@@ -3,6 +3,21 @@ package bai12;
 import java.util.Scanner;
 
 public class TestCDList {
+	public static CD enterCD() {
+		Scanner sc = new Scanner(System.in);
+
+		System.out.println("Nhap thong tin CD moi: ");
+		System.out.print("Nhap ma CD: ");
+		int maCd = sc.nextInt();
+		System.out.print("Nhap tua CD: ");
+		String tuaCd = sc.next();
+		System.out.print("Nhap so bai hat: ");
+		int soBaiHat = sc.nextInt();
+		System.out.print("Nhap gia thanh: ");
+		double giaThanh = sc.nextDouble();
+
+		return new CD(maCd, tuaCd, soBaiHat, giaThanh);
+	}
 
 	public static void main(String[] args) {
 		int choice = 0;
@@ -13,7 +28,6 @@ public class TestCDList {
 			// Menu choice
 			do {
 				do {
-					// clearConsole();
 					System.out.println("Menu chon:");
 					System.out.println("1. Them CD vao danh sach");
 					System.out.println("2. Tinh so luong CD trong danh sach");
@@ -25,12 +39,13 @@ public class TestCDList {
 					System.out.println("8. Sap xep danh sach tang dan dua theo tua CD");
 					System.out.println("9. Doi thong tin cua mot CD theo ma");
 					System.out.println("10. Thoat");
-					System.out.println("Nhap lua chon cua ban: ");
+					System.out.print("Nhap lua chon cua ban: ");
 					choice = sc.nextInt();
 
 					switch (choice) {
 					case 1:
-						boolean res = cdList.addCD();
+						CD cd = enterCD();
+						boolean res = cdList.addCD(cd);
 						if (res) {
 							System.out.println("Thanh cong!");
 						} else {
@@ -48,7 +63,7 @@ public class TestCDList {
 						cdList.deleteCDByMaCD();
 						break;
 					case 5:
-						System.out.println("Hay nhap ma CD can tim: ");
+						System.out.print("Hay nhap ma CD can tim: ");
 						int x = sc.nextInt();
 						int result = cdList.findCDByMaCD(x);
 						if (result == -1) {

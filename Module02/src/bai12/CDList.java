@@ -12,7 +12,7 @@ public class CDList {
 	// Constructor
 	public CDList() {
 		sc = new Scanner(System.in);
-		System.out.println("Nhap so luong CD: ");
+		System.out.print("Nhap so luong CD: ");
 		n = sc.nextInt();
 		CDList = new CD[n];
 	}
@@ -27,20 +27,10 @@ public class CDList {
 	}
 
 	// Add CD to List
-	public boolean addCD() {
-		System.out.println("Nhap thong tin CD moi: ");
-		System.out.println("Nhap ma CD: ");
-		int maCd = sc.nextInt();
-		System.out.println("Nhap tua CD: ");
-		String tuaCd = sc.next();
-		System.out.println("Nhap so bai hat: ");
-		int soBaiHat = sc.nextInt();
-		System.out.println("Nhap gia thanh: ");
-		double giaThanh = sc.nextDouble();
-
+	public boolean addCD(CD addedCD) {
 		// Add new CD to array if array is not full and maCd is unique
-		if (this.i < CDList.length && checkMaCd(maCd) == false) {
-			CDList[this.i] = new CD(maCd, tuaCd, soBaiHat, giaThanh);
+		if (this.i < CDList.length && checkMaCd(addedCD.getMaCd()) == false) {
+			CDList[this.i] = addedCD;
 			this.i = this.i + 1;
 			return true;
 		} else {
@@ -156,10 +146,9 @@ public class CDList {
 		} else {
 			System.out
 					.println(String.format("|%-20s|%-20s|%-20s|%-20s|", "Ma CD", "Tua CD", "So bai hat", "Gia thanh"));
-			System.out
-					.println("=======================================================================================");
+			System.out.println("=====================================================================================");
 			for (int i = 0; i < this.i; i++) {
-				System.out.println(CDList[i].toString());
+				System.out.println(CDList[i]);
 			}
 		}
 	}
