@@ -1,10 +1,16 @@
 package bai13;
 
+import java.text.NumberFormat;
+import java.util.Locale;
+
 public class CongNhan {
 	private int maCN;
 	private String mHo;
 	private String mTen;
 	private int mSoSP;
+
+	Locale local = new Locale("vi", "VN");
+	NumberFormat nf = NumberFormat.getCurrencyInstance(local);
 
 	public CongNhan() {
 	}
@@ -88,16 +94,16 @@ public class CongNhan {
 		if (mSoSP < 200) {
 			return mSoSP * 0.5;
 		} else if (mSoSP < 400) {
-			return mSoSP * 0.55;
+			return 199 * 0.5 + (mSoSP - 199) * 0.55;
 		} else if (mSoSP < 600) {
-			return mSoSP * 0.6;
+			return 199 * 0.5 + 200 * 0.55 + (mSoSP - 399) * 0.6;
 		} else {
-			return mSoSP * 0.65;
+			return 199 * 0.5 + 200 * 0.55 + 200 * 0.6 + (mSoSP - 599) * 0.65;
 		}
 	}
 
 	@Override
 	public String toString() {
-		return String.format("%-20d %-20s %-20d %-20f", maCN, mHo + mTen, mSoSP, tinhLuong());
+		return String.format("%-20d|%-20s|%-20d|%-20s|", maCN, mHo + " " + mTen, mSoSP, nf.format(tinhLuong()));
 	}
 }

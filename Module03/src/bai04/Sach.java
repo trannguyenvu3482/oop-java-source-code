@@ -10,7 +10,6 @@ public class Sach {
 	private String nhaXuatBan;
 
 	public Sach(String maSach, LocalDate ngayNhap, double donGia, int soLuong, String nhaXuatBan) {
-		super();
 		this.maSach = maSach;
 		this.ngayNhap = ngayNhap;
 		this.donGia = donGia;

@@ -3,15 +3,30 @@ package bai13;
 import java.util.Scanner;
 
 public class TestCongNhan {
+	static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args) {
 		int choice = -1;
 		boolean exit = false;
-		Scanner sc = new Scanner(System.in);
-		DanhSachCongNhan ds = new DanhSachCongNhan();
+
+		// Create DanhSachCongNhan with maximum of 10 CongNhan
+		DanhSachCongNhan ds = new DanhSachCongNhan(10);
+
+		// Added 5 random CongNhan
+		try {
+			ds.addCongNhan(new CongNhan(1, "Tran", "Vu", 20));
+			ds.addCongNhan(new CongNhan(2, "Tran", "Huy", 150));
+			ds.addCongNhan(new CongNhan(3, "Nguyen", "Thai", 1));
+			ds.addCongNhan(new CongNhan(4, "Le", "Vu", 200));
+			ds.addCongNhan(new CongNhan(5, "Le", "Quang", 300));
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
 
 		// Menu
 		do {
 			do {
+				System.out.println();
 				System.out.println("1. Them cong nhan vao danh sach");
 				System.out.println("2. Xem danh sach cong nhan");
 				System.out.println("3. Xem so luong tat ca nhan vien co trong danh sach");
@@ -23,7 +38,7 @@ public class TestCongNhan {
 				choice = sc.nextInt();
 
 				if (choice < 1 || choice > 7) {
-					System.out.println("Lua chon khong hop le. Nhap lai: ");
+					System.err.println("Lua chon khong hop le. Nhap lai: ");
 				}
 			} while (choice < 1 || choice > 7);
 
@@ -47,11 +62,7 @@ public class TestCongNhan {
 				}
 				break;
 			case 2:
-				try {
-					ds.outputDSCN();
-				} catch (Exception e) {
-					System.err.println(e.getMessage());
-				}
+				System.out.println(ds);
 				break;
 			case 3:
 				try {
@@ -63,6 +74,7 @@ public class TestCongNhan {
 			case 4:
 				System.out.println("Nhap vao ma CN can xoa: ");
 				int delMaCN = sc.nextInt();
+
 				try {
 					ds.deleteCongNhanByMaCN(delMaCN);
 				} catch (Exception e) {
@@ -82,7 +94,6 @@ public class TestCongNhan {
 				} catch (Exception e) {
 					System.err.println(e.getMessage());
 				}
-				System.out.println("Da sap xep!");
 				break;
 			case 7:
 				System.out.println("Cam on ban da su dung chuong trinh");

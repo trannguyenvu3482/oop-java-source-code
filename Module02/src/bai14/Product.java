@@ -1,54 +1,79 @@
 package bai14;
 
 public class Product {
-    private String description;
-    private String productID;
-    private double price;
+	private String description;
+	private String productID;
+	private double price;
 
-    public Product() {
-        this.description = "";
-        this.productID = "";
-        this.price = 0;
-    }
+	public Product() {
+		this.description = "";
+		this.productID = "";
+		this.price = 0;
+	}
 
-    public Product(String description, String productID, double price) {
-        setDescription(description);
-        setProductID(productID);
-        setPrice(price);
-    }
+	public Product(String description, String productID, double price) throws Exception {
+		this.description = "";
+		this.productID = "";
+		this.price = 0;
 
-    public String getDescription() {
-        return description;
-    }
+		if (description.length() > 0) {
+			this.description = description;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
+		}
 
-    public void setDescription(String description) {
-        if (description.length() > 0) {
-            this.description = description;
-        }
-    }
+		if (productID.length() > 0) {
+			this.productID = productID;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
+		}
 
-    public String getProductID() {
-        return productID;
-    }
+		if (price > 0) {
+			this.price = price;
+		} else {
+			throw new Exception("Gia phai lon hon 0");
+		}
 
-    public void setProductID(String productID) {
-        if (productID.length() > 0) {
-            this.productID = productID;
-        }
-    }
+	}
 
-    public double getPrice() {
-        return price;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setPrice(double price) {
-        if (price > 0) {
-            this.price = price;
-        }
-    }
+	public void setDescription(String description) throws Exception {
+		if (description.length() > 0) {
+			this.description = description;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
+		}
+	}
 
-    @Override
-    public String toString() {
-        return "Product{" + "description=" + description + ", productID=" + productID + ", price=" + price + '}';
-    }
+	public String getProductID() {
+		return productID;
+	}
+
+	public void setProductID(String productID) throws Exception {
+		if (productID.length() > 0) {
+			this.productID = productID;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
+		}
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) throws Exception {
+		if (price > 0) {
+			this.price = price;
+		} else {
+			throw new Exception("Gia phai lon hon 0");
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "Product{" + "description=" + description + ", productID=" + productID + ", price=" + price + '}';
+	}
 }

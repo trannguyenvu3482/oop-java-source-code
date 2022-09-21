@@ -1,40 +1,39 @@
 package bai13;
 
-import java.util.Scanner;
-
 public class DanhSachCongNhan {
+	final int MAX = 100;
 	private CongNhan[] DSCN;
-	private int n;
-	private int i = 0;
-	private Scanner sc;
+	private int n; // So phan tu toi da luc khoi tao
+	private int i = 0; // So cong nhan hien tai co trong danh sach
 
 	// Constructor
-	public DanhSachCongNhan() {
-		sc = new Scanner(System.in);
-		do {
-			System.out.println("Nhap so luong cong nhan: ");
-			n = sc.nextInt();
-
-			if (n < 1) {
-				System.err.println("So luong cong nhan phai > 0");
-			}
-		} while (n < 1);
-		DSCN = new CongNhan[n];
+	public DanhSachCongNhan(int size) {
+		if (size < 5 || size > MAX) {
+			System.err.println("So luong cong nhan it nhat phai la 5");
+		} else {
+			DSCN = new CongNhan[size];
+			n = size;
+		}
 	}
 
-	// Methods
 	// Add CongNhan to List
-	public void addCongNhan(CongNhan addCN) throws Exception {
+	public boolean addCongNhan(CongNhan addCN) throws Exception {
 		// Add new CongNhan to array if array is not full and maCN is unique
-		if (this.i < DSCN.length && !checkMaCN(addCN.getMaCN())) {
-			try {
-				DSCN[this.i] = addCN;
-				this.i = this.i + 1;
-			} catch (Exception e) {
-				System.err.println(e.getMessage());
+		if (i < n) {
+			if (!checkMaCN(addCN.getMaCN())) {
+				try {
+					DSCN[i] = addCN;
+					i = i + 1;
+					return true;
+				} catch (Exception e) {
+					throw e;
+				}
+
+			} else {
+				throw new Exception("Ma cong nhan da ton tai");
 			}
 		} else {
-			System.err.println("Khong the them cong nhan vao danh sach");
+			throw new Exception("Danh sach da day");
 		}
 	}
 
@@ -89,20 +88,6 @@ public class DanhSachCongNhan {
 		return false;
 	}
 
-	// Output all CongNhan in the list
-	public void outputDSCN() throws Exception {
-		if (this.i == 0) {
-			throw new Exception("Danh sach cong nhan dang rong");
-		}
-
-		System.out.println("Danh sach cong nhan: ");
-		System.out.println(
-				String.format("%-20s %-20s %-20s %-20s", "Ma cong nhan", "Ho va ten CN", "So san pham", "Tien luong"));
-		for (int j = 0; j < this.i; j++) {
-			System.out.println(DSCN[j].toString());
-		}
-	}
-
 	// Output number of CongNhan in the list
 	public void outputSoLuong() throws Exception {
 		if (this.i == 0) {
@@ -118,7 +103,7 @@ public class DanhSachCongNhan {
 			throw new Exception("Danh sach cong nhan dang rong");
 		} else {
 			System.out.println("Danh sach cong nhan co so san pham lon hon 200: ");
-			System.out.println(String.format("%-20s %-20s %-20s %-20s", "Ma cong nhan", "Ho va ten CN", "So san pham",
+			System.out.println(String.format("%-20s|%-20s|%-20s|%-20s|", "Ma cong nhan", "Ho va ten CN", "So san pham",
 					"Tien luong"));
 			for (int j = 0; j < this.i; j++) {
 				if (DSCN[j].getmSoSP() > 200) {
@@ -144,4 +129,22 @@ public class DanhSachCongNhan {
 			}
 		}
 	}
+
+	// Output all CongNhan in the list
+	@Override
+	public String toString() {
+		if (this.i == 0) {
+			return "Danh sach cong nhan dang rong!";
+		} else {
+			System.out.println("Danh sach cong nhan: ");
+			System.out.println(String.format("%-20s|%-20s|%-20s|%-20s|", "Ma cong nhan", "Ho va ten CN", "So san pham",
+					"Tien luong"));
+			for (int j = 0; j < this.i; j++) {
+				System.out.println(DSCN[j]);
+			}
+			return "";
+		}
+
+	}
+
 }
