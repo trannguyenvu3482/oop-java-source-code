@@ -9,18 +9,29 @@ public class CongNhan {
 	public CongNhan() {
 	}
 
-	public CongNhan(int maCN, String mHo, String mTen, int mSoSP) {
+	public CongNhan(int maCN, String mHo, String mTen, int mSoSP) throws Exception {
 		if (maCN > 0) {
 			this.maCN = maCN;
+		} else {
+			throw new Exception("Ma cong nhan phai > 0");
 		}
+
 		if (mHo.length() > 0) {
 			this.mHo = mHo;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
 		}
+
 		if (mTen.length() > 0) {
 			this.mTen = mTen;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
 		}
+
 		if (mSoSP > 0) {
 			this.mSoSP = mSoSP;
+		} else {
+			throw new Exception("So SP phai > 0");
 		}
 	}
 
@@ -28,9 +39,11 @@ public class CongNhan {
 		return maCN;
 	}
 
-	public void setMaCN(int maCN) {
+	public void setMaCN(int maCN) throws Exception {
 		if (maCN > 0) {
 			this.maCN = maCN;
+		} else {
+			throw new Exception("Ma cong nhan phai > 0");
 		}
 	}
 
@@ -38,9 +51,11 @@ public class CongNhan {
 		return mHo;
 	}
 
-	public void setmHo(String mHo) {
+	public void setmHo(String mHo) throws Exception {
 		if (mHo.length() > 0) {
 			this.mHo = mHo;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
 		}
 	}
 
@@ -48,9 +63,11 @@ public class CongNhan {
 		return mTen;
 	}
 
-	public void setmTen(String mTen) {
+	public void setmTen(String mTen) throws Exception {
 		if (mTen.length() > 0) {
 			this.mTen = mTen;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
 		}
 	}
 
@@ -58,9 +75,11 @@ public class CongNhan {
 		return mSoSP;
 	}
 
-	public void setmSoSP(int mSoSP) {
+	public void setmSoSP(int mSoSP) throws Exception {
 		if (mSoSP > 0) {
 			this.mSoSP = mSoSP;
+		} else {
+			throw new Exception("So SP phai > 0");
 		}
 	}
 

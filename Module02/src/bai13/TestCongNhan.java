@@ -29,24 +29,59 @@ public class TestCongNhan {
 
 			switch (choice) {
 			case 1:
-				ds.addCongNhan();
+				System.out.println("Nhap thong tin cong nhan moi: ");
+				System.out.println("Nhap ma cong nhan: ");
+				int maCN = sc.nextInt();
+				System.out.println("Nhap ho cong nhan: ");
+				String mHo = sc.next();
+				System.out.println("Nhap ten cong nhan: ");
+				String mTen = sc.next();
+				System.out.println("Nhap so san pham: ");
+				int mSoSP = sc.nextInt();
+
+				try {
+					CongNhan addCN = new CongNhan(maCN, mHo, mTen, mSoSP);
+					ds.addCongNhan(addCN);
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 2:
-				ds.outputDSCN();
+				try {
+					ds.outputDSCN();
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 3:
-				ds.outputSoLuong();
+				try {
+					ds.outputSoLuong();
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 4:
 				System.out.println("Nhap vao ma CN can xoa: ");
 				int delMaCN = sc.nextInt();
-				ds.deleteCongNhanByMaCN(delMaCN);
+				try {
+					ds.deleteCongNhanByMaCN(delMaCN);
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 5:
-				ds.outputDSCN_mSoSP();
+				try {
+					ds.outputDSCN_mSoSP();
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
 				break;
 			case 6:
-				ds.sortDSCN();
+				try {
+					ds.sortDSCN();
+				} catch (Exception e) {
+					System.err.println(e.getMessage());
+				}
 				System.out.println("Da sap xep!");
 				break;
 			case 7:
