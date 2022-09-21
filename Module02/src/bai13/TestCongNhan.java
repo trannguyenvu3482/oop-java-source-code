@@ -9,8 +9,8 @@ public class TestCongNhan {
 		int choice = -1;
 		boolean exit = false;
 
-		// Create DanhSachCongNhan with maximum of 10 CongNhan
-		DanhSachCongNhan ds = new DanhSachCongNhan(10);
+		// Create DanhSachCongNhan with maximum of 20 CongNhan
+		DanhSachCongNhan ds = new DanhSachCongNhan(20);
 
 		// Added 5 random CongNhan
 		try {

@@ -115,6 +115,7 @@ public class DanhSachCongNhan {
 
 	// Sort all CongNhan by mSoSP
 	public void sortDSCN() throws Exception {
+
 		if (this.i == 0) {
 			throw new Exception("Danh sach cong nhan dang rong");
 		} else {
