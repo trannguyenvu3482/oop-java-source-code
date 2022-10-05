@@ -1,6 +1,9 @@
 package giaodich;
 
+import java.text.DateFormat;
+import java.text.NumberFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class GiaoDichNha extends GiaoDich {
     private String loaiNha;
@@ -9,10 +12,20 @@ public class GiaoDichNha extends GiaoDich {
     public GiaoDichNha() {
     }
 
-    public GiaoDichNha(String maGD, Calendar ngayGD, double donGia, double dienTich, String loaiNha, String diaChi) {
+    public GiaoDichNha(String maGD, Calendar ngayGD, double donGia, double dienTich, String loaiNha, String diaChi) throws Exception {
         super(maGD, ngayGD, donGia, dienTich);
-        this.loaiNha = loaiNha;
-        this.diaChi = diaChi;
+        
+        if (loaiNha != null) {
+        	this.loaiNha = loaiNha;
+        } else {
+        	throw new Exception("Khong duoc rong");
+        }
+        
+        if (diaChi != null) {
+        	this.diaChi = diaChi;
+        } else {
+        	throw new Exception("Khong duoc rong");
+        }
     }
 
     @Override
@@ -24,20 +37,31 @@ public class GiaoDichNha extends GiaoDich {
         return loaiNha;
     }
 
-    public void setLoaiNha(String loaiNha) {
-        this.loaiNha = loaiNha;
+    public void setLoaiNha(String loaiNha) throws Exception {
+    	if (loaiNha != null) {
+        	this.loaiNha = loaiNha;
+        } else {
+        	throw new Exception("Khong duoc rong");
+        }
     }
 
     public String getDiaChi() {
         return diaChi;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+    public void setDiaChi(String diaChi) throws Exception {
+    	if (diaChi != null) {
+        	this.diaChi = diaChi;
+        } else {
+        	throw new Exception("Khong duoc rong");
+        }
     }
 
     @Override
     public String toString() {
-        return "GiaoDichNha [loaiNha=" + loaiNha + ", diaChi=" + diaChi + "]";
+    	Locale lc = new Locale("vi", "VN");
+    	DateFormat df = DateFormat.getDateInstance(3, lc);
+    	NumberFormat nf = NumberFormat.getCurrencyInstance(lc);
+    	return String.format("|%-10s|%-20s|%-20s|%-20s|%-20s|%-20s|%-10s|%-10s|", getMaGD(), df.format(getNgayGD().getTime()), nf.format(getThanhTien()), "", getLoaiNha(), getDiaChi(), getDienTich(), "GD nha");
     }
 }

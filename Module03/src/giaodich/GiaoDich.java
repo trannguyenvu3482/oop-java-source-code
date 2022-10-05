@@ -1,6 +1,7 @@
 package giaodich;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 public abstract class GiaoDich {
     protected String maGD;
@@ -11,65 +12,99 @@ public abstract class GiaoDich {
     public GiaoDich() {
     }
 
-    public GiaoDich(String maGD, Calendar ngayGD, double donGia, double dienTich) {
-        this.maGD = maGD;
-        this.ngayGD = ngayGD;
-        this.donGia = donGia;
-        this.dienTich = dienTich;
+    public GiaoDich(String maGD, Calendar ngayGD, double donGia, double dienTich) throws Exception {
+    	if (maGD != null) {
+    		this.maGD = maGD;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
+		}
+    	
+        if (ngayGD != null) {
+        	this.ngayGD = ngayGD;
+        } else {
+        	throw new Exception("Khong duoc null");
+        }
+        
+        if (donGia > 0) {
+        	this.donGia = donGia;
+        } else {
+        	throw new Exception("Phai lon hon 0");
+        }
+        
+        if (dienTich > 0) {
+        	this.dienTich = dienTich;
+        } else {
+        	throw new Exception("Phai lon hon 0");
+        }
     }
 
     public abstract double getThanhTien();
 
-    public void tieuDeGDD() {
-        System.out.println("Mã giao dịch: " + maGD);
-        System.out.println("Ngày giao dịch: " + ngayGD.get(Calendar.DAY_OF_MONTH) + "/" + ngayGD.get(Calendar.MONTH)
-                + "/" + ngayGD.get(Calendar.YEAR));
-        System.out.println("Đơn giá: " + donGia);
-        System.out.println("Diện tích: " + dienTich);
-        System.out.println("Thành tiền: " + getThanhTien());
-    }
+    @Override
+	public int hashCode() {
+		return Objects.hash(maGD);
+	}
 
-    public void tieuDeGDN() {
-        System.out.println("Mã giao dịch: " + maGD);
-        System.out.println("Ngày giao dịch: " + ngayGD.get(Calendar.DAY_OF_MONTH) + "/" + ngayGD.get(Calendar.MONTH)
-                + "/" + ngayGD.get(Calendar.YEAR));
-        System.out.println("Đơn giá: " + donGia);
-        System.out.println("Diện tích: " + dienTich);
-        System.out.println("Thành tiền: " + getThanhTien());
-    }
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		GiaoDich other = (GiaoDich) obj;
+		return Objects.equals(maGD, other.maGD);
+	}
 
-    public String getMaGD() {
+	public String getMaGD() {
         return maGD;
     }
 
-    public void setMaGD(String maGD) {
-        this.maGD = maGD;
+    public void setMaGD(String maGD) throws Exception {
+    	if (maGD != null) {
+    		this.maGD = maGD;
+		} else {
+			throw new Exception("Chuoi khong duoc rong");
+		}
     }
 
     public Calendar getNgayGD() {
         return ngayGD;
     }
 
-    public void setNgayGD(Calendar ngayGD) {
-        this.ngayGD = ngayGD;
+    public void setNgayGD(Calendar ngayGD) throws Exception {
+    	if (ngayGD != null) {
+        	this.ngayGD = ngayGD;
+        } else {
+        	throw new Exception("Khong duoc null");
+        }
     }
 
     public double getDonGia() {
         return donGia;
     }
 
-    public void setDonGia(double donGia) {
-        this.donGia = donGia;
+    public void setDonGia(double donGia) throws Exception {
+    	if (donGia > 0) {
+        	this.donGia = donGia;
+        } else {
+        	throw new Exception("Phai lon hon 0");
+        }
     }
 
     public double getDienTich() {
         return dienTich;
     }
 
-    public void setDienTich(double dienTich) {
-        this.dienTich = dienTich;
+    public void setDienTich(double dienTich) throws Exception {
+    	if (dienTich > 0) {
+        	this.dienTich = dienTich;
+        } else {
+        	throw new Exception("Phai lon hon 0");
+        }
     }
-
+    
     @Override
     public String toString() {
         return "GiaoDich{" +
