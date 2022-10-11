@@ -17,6 +17,8 @@ public class VeMayBay {
 	NumberFormat nf = NumberFormat.getCurrencyInstance(local);
 
 	public VeMayBay(String ma, String noiDi, String noiDen, LocalDate ngayBay, double giaTien) throws Exception {
+		LocalDate.now().getYear() - ngayBay.getYear()
+		
 		if (ma.length() == 3) {
 			this.ma = ma;
 		} else {

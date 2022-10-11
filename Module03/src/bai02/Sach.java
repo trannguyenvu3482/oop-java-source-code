@@ -2,13 +2,13 @@ package bai02;
 
 import java.util.Date;
 
-public class Sach {
-	private int maSach;
-	private Date ngayNhap;
-	private double donGia;
-	private int soLuong;
-	private String nhaXuatBan;
-	private double thanhTien;
+public abstract class Sach {
+	protected int maSach;
+	protected Date ngayNhap;
+	protected double donGia;
+	protected int soLuong;
+	protected String nhaXuatBan;
+	protected double thanhTien;
 
 	public Sach(int maSach, Date ngayNhap, double donGia, int soLuong, String nhaXuatBan) {
 		super();
