@@ -19,3 +19,6 @@ target/
 
 # Bin folder
 bin/
+
+# Class files
+*.class

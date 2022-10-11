@@ -29,7 +29,7 @@ public class DanhSachBenhNhan {
 		}
 
 		for (int i = 0; i < count; i++) {
-			if (bn.equals(danhSachBenhNhan[i])) {
+			if (danhSachBenhNhan[i].equals(bn)) {
 				return false;
 			}
 		}

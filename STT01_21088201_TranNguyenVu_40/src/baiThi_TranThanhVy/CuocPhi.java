@@ -11,13 +11,6 @@ public class CuocPhi {
 	final int GIACHUAN = 500;
 	final int GIAVUOT = 400;
 
-	/**
-	 * @param thueBao
-	 * @param thang
-	 * @param nam
-	 * @param soMBSuDung
-	 * @throws Exception
-	 */
 	public CuocPhi(ThueBao thueBao, int thang, int nam, int soMBSuDung) throws Exception {
 		setThueBao(thueBao);
 		setThang(thang);
