@@ -5,3 +5,4 @@ Giáo viên phụ trách: Thầy Bùi Văn Đồng
 
 ### Note:
 - Bài kiểm tra thường kì lần 1: Nằm trong Module3/maybay (https://imgur.com/a/UKsHBDb)
+- Bài thi giữa kì nằm trong folder **STT01_21088201_TranNguyenVu_40**
