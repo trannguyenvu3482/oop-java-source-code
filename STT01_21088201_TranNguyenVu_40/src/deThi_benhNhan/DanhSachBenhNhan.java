@@ -23,13 +23,19 @@ public class DanhSachBenhNhan {
 
 	public boolean themMoiBenhNhan(BenhNhan bn) {
 		if (count == danhSachBenhNhan.length) {
+			// Tạo mảng tam có kích thước tăng 75% so với mảng cũ
 			BenhNhan[] tam = new BenhNhan[(int) (count * 1.75)];
 
-			System.arraycopy(tam, 0, danhSachBenhNhan, 0, (int) (count * 1.75));
+			// Copy dữ liệu từ mảng cũ sang mảng tạm
+			System.arraycopy(danhSachBenhNhan, 0, tam, 0, (int) (count * 1.75));
+
+			// Gán mảng DSBN thành mảng tam
+			danhSachBenhNhan = tam;
 		}
 
+		// Kiem tra trung ma
 		for (int i = 0; i < count; i++) {
-			if (danhSachBenhNhan[i].equals(bn)) {
+			if (danhSachBenhNhan[i].getMaSoBN().equals(bn.getMaSoBN())) {
 				return false;
 			}
 		}
