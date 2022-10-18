@@ -27,6 +27,50 @@ public class TestPhongHoc {
 		}
 	}
 
+	public static PhongMayTinh nhapPhongMayTinh() {
+		String maPhong, dayNha;
+		double dienTich;
+		int soBongDen, soMayTinh;
+		System.out.printf("Nhap ma phong: ");
+		maPhong = sc.next();
+		System.out.printf("Nhap day nha: ");
+		dayNha = sc.next();
+		System.out.printf("Nhap dien tich: ");
+		dienTich = sc.nextDouble();
+		System.out.printf("Nhap so bong den: ");
+		soBongDen = sc.nextInt();
+		System.out.printf("Nhap so may tinh : ");
+		soMayTinh = sc.nextInt();
+
+		return new PhongMayTinh(maPhong, dayNha, dienTich, soBongDen, soMayTinh);
+	}
+
+	public static PhongThiNghiem nhapPhongThiNghiem() {
+		String maPhong, dayNha, chuyenNganh, temp;
+		double dienTich, sucChua;
+		int soBongDen;
+		System.out.printf("Nhap ma phong: ");
+		maPhong = sc.next();
+		System.out.printf("Nhap day nha: ");
+		dayNha = sc.next();
+		System.out.printf("Nhap dien tich: ");
+		dienTich = sc.nextDouble();
+		System.out.printf("Nhap so bong den: ");
+		soBongDen = sc.nextInt();
+		System.out.printf("Nhap chuyen nganh : ");
+		chuyenNganh = sc.next();
+		System.out.printf("Nhap suc chua: ");
+		sucChua = sc.nextDouble();
+		System.out.printf("Phong hoc co bon rua hay khong (Co/Khong): ");
+		temp = sc.next();
+
+		if (temp.equalsIgnoreCase("co")) {
+			return new PhongThiNghiem(maPhong, dayNha, dienTich, soBongDen, chuyenNganh, sucChua, true);
+		} else {
+			return new PhongThiNghiem(maPhong, dayNha, dienTich, soBongDen, chuyenNganh, sucChua, false);
+		}
+	}
+
 	public static void main(String[] args) {
 		DanhSachPhongHoc ds = new DanhSachPhongHoc(10);
 		int choice;
