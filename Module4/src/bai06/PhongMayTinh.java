@@ -23,4 +23,9 @@ public class PhongMayTinh extends PhongHoc {
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return "Phong may tinh";
+	}
 }

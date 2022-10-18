@@ -44,4 +44,9 @@ public class PhongThiNghiem extends PhongHoc {
 		}
 		return false;
 	}
+
+	@Override
+	public String toString() {
+		return "Phong thi nghiem";
+	}
 }

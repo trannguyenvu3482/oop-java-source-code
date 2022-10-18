@@ -66,4 +66,5 @@ public abstract class PhongHoc {
 	}
 
 	protected abstract boolean checkDatChuan();
+
 }

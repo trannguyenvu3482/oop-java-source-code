@@ -66,9 +66,67 @@ public class DanhSachPhongHoc {
 		});
 	}
 
+	public void sortBySoBongDen() {
+		Collections.sort(ls, new Comparator<PhongHoc>() {
+			@Override
+			public int compare(PhongHoc o1, PhongHoc o2) {
+				if (o1.soBongDen < o2.soBongDen) {
+					return -1;
+				} else if (o1.soBongDen == o2.soBongDen) {
+					return 0;
+				} else {
+					return 1;
+				}
+			}
+		});
+	}
+
+	public void updatePhongMayTinh(String maPhong, int soMayTinh) throws Exception {
+		PhongMayTinh ph = (PhongMayTinh) findPhongHoc(maPhong);
+
+		if (ph != null) {
+			ph.setSoMayTinh(soMayTinh);
+		} else {
+			throw new Exception("Khong tim thay phong hoc ");
+		}
+	}
+
+	public void xoaPhongHoc(String maPhongHoc) throws Exception {
+		PhongHoc ph = findPhongHoc(maPhongHoc);
+
+		if (ph != null) {
+			ls.remove(ph);
+		} else {
+			throw new Exception("Khong tim thay phong hoc");
+		}
+	}
+
+	public int getSoPhongHoc() {
+		return ls.size();
+	}
+
+	public List<PhongMayTinh> getPhongMT() {
+		List<PhongMayTinh> listPMT = new ArrayList<PhongMayTinh>(ls.size());
+
+		for (PhongMayTinh phongMayTinh : listPMT) {
+			if (phongMayTinh.getSoMayTinh() == 60) {
+				listPMT.add(phongMayTinh);
+			}
+		}
+
+		return listPMT;
+	}
+
 	@Override
 	public String toString() {
-		return super.toString();
+		String s = "";
+		s += String.format("%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s|%-15s\n", "Ma phong", "Day nha",
+				"Dien tich", "So bong", "May chieu", "So may tinh", "Chuyen nganh", "Suc chua", "Bon rua");
+		for (PhongHoc phongHoc : ls) {
+			s += phongHoc.toString();
+			s += "\n";
+		}
+		return s;
 	}
 
 }
