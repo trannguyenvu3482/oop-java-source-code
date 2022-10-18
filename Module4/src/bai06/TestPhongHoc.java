@@ -71,9 +71,10 @@ public class TestPhongHoc {
 		}
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		DanhSachPhongHoc ds = new DanhSachPhongHoc(10);
 		int choice;
+		String temp;
 
 		do {
 			do {
@@ -103,10 +104,32 @@ public class TestPhongHoc {
 					System.out.println("1. Phong hoc ly thuyet");
 					System.out.println("2. Phong may tinh");
 					System.out.println("3. Phong thi nghiem");
-
+					choice = sc.nextInt();
 				} while (choice < 1 || choice > 3);
+
+				if (choice == 1) {
+					PhongLyThuyet plt = nhapPhongLyThuyet();
+					ds.addPhongHoc(plt);
+				} else if (choice == 2) {
+					PhongMayTinh pmt = nhapPhongMayTinh();
+					ds.addPhongHoc(pmt);
+				} else {
+					PhongThiNghiem ptn = nhapPhongThiNghiem();
+					ds.addPhongHoc(ptn);
+				}
 				break;
 			case 2:
+				System.out.println();
+				System.out.printf("Nhap ma phong hoc can tim: ");
+				temp = sc.next();
+
+				PhongHoc ph = ds.findPhongHoc(temp);
+
+				if (ph != null) {
+					System.out.println(ph);
+				} else {
+					System.err.println("Khong tim thay phong hoc");
+				}
 				break;
 			case 3:
 				System.out.println(ds);
