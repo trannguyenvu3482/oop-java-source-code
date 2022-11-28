@@ -1,6 +1,9 @@
 package cuoiKi_TTV;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 public abstract class TaiKhoanThe {
 	protected String maThe;
@@ -38,6 +41,17 @@ public abstract class TaiKhoanThe {
 
 	public String getTenChu() {
 		return tenChu;
+	}
+
+	public void test() {
+		Calendar c1 = new GregorianCalendar(2022, 10, 20);
+		Calendar c2 = new GregorianCalendar(2022, 10, 30);
+
+		long getDiff = (c2.getTimeInMillis() - c1.getTimeInMillis());
+
+		long getDaysDiff = TimeUnit.MILLISECONDS.toDays(getDiff);
+
+		System.out.println("So ngay giua 2 ngay: " + getDaysDiff);
 	}
 
 	public void setMaThe(String maThe) throws Exception {

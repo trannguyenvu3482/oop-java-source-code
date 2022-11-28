@@ -1,6 +1,7 @@
 package dateTime_Test;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Objects;
 
@@ -11,11 +12,16 @@ public class SinhVien {
 	private Calendar ngaySinhCal;
 	private double diemTB;
 
-	public SinhVien(String maSV, String hoTen, Calendar ngaySinh, double diemTB) throws Exception {
+	public SinhVien(String maSV, String hoTen, LocalDate ngaySinh, double diemTB) throws Exception {
 		this.maSV = maSV;
 		this.hoTen = hoTen;
-		setNgaySinhCal(ngaySinh);
+		setNgaySinh(ngaySinh);
 		this.diemTB = diemTB;
+	}
+
+	public long ngaySinhTillNow() {
+		long betweenDates = ChronoUnit.DAYS.between(ngaySinh, LocalDate.now());
+		return betweenDates;
 	}
 
 	@Override
